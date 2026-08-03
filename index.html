@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="description"
+      content="YAML 整形：pretty／驗證。可掛成 Playgrounds 工具編輯工作沙盒的 .yml。"
+    />
+    <meta name="sam:tool-kinds" content="editor:yaml" />
+    <meta name="sam:tool-globs" content="*.yml, *.yaml" />
+    <title>YAML 整形</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="top">
+        <div class="brand">
+          <strong>YAML 整形</strong>
+          <span id="path-label" class="path" title="授權路徑">—</span>
+        </div>
+        <div class="actions">
+          <span id="mode-label" class="mode" title="模式"></span>
+          <label class="inline"
+            >縮排
+            <select id="space">
+              <option value="2">2</option>
+              <option value="4">4</option>
+            </select>
+          </label>
+          <button type="button" id="btn-sample" class="ghost" hidden>
+            載入範例
+          </button>
+          <button type="button" id="btn-pretty" class="primary">Pretty</button>
+          <button type="button" id="btn-copy" class="ghost">複製</button>
+          <button type="button" id="btn-reload" class="ghost" title="重新載入">
+            重新載入
+          </button>
+          <button type="button" id="btn-save" class="primary" disabled hidden>
+            儲存
+          </button>
+          <button type="button" id="btn-close" class="ghost" title="關閉工具" hidden>
+            關閉
+          </button>
+        </div>
+      </header>
+
+      <p id="status" class="status" role="status"></p>
+
+      <div class="panels">
+        <label class="pane">
+          <span>輸入</span>
+          <textarea
+            id="input"
+            class="editor"
+            spellcheck="false"
+            placeholder="貼上 YAML…"
+          ></textarea>
+        </label>
+        <label class="pane">
+          <span>輸出</span>
+          <textarea
+            id="output"
+            class="editor"
+            readonly
+            spellcheck="false"
+          ></textarea>
+        </label>
+      </div>
+    </div>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
